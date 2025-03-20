@@ -96,7 +96,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![image.png](image.png)
+![image.png](https://github.com/ndomah1/Mall-Customer-Segmentation-in-Python/blob/main/images/image.png)
 
 **Key Findings**: The data is well-distributed, but some customers have extreme spending behaviors.
 
@@ -159,7 +159,7 @@ plt.title("Elbow Method for Optimal K")
 plt.show()
 ```
 
-![image.png](image%201.png)
+![image.png](https://github.com/ndomah1/Mall-Customer-Segmentation-in-Python/blob/main/images/image%201.png)
 
 **Key Finding**: The **optimal number of clusters (K) is 5**, as observed at the elbow point.
 
@@ -195,7 +195,7 @@ plt.legend(title="Cluster")
 plt.show()
 ```
 
-![image.png](image%202.png)
+![image.png](https://github.com/ndomah1/Mall-Customer-Segmentation-in-Python/blob/main/images/image%202.png)
 
 #### 3D
 
@@ -227,7 +227,7 @@ plt.legend(*scatter.legend_elements(), title="Cluster")
 plt.show()
 ```
 
-![image.png](image%203.png)
+![image.png](https://github.com/ndomah1/Mall-Customer-Segmentation-in-Python/blob/main/images/image%203.png)
 
 ### **Interpreting the Clusters**:
 
