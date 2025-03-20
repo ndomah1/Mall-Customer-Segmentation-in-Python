@@ -1,10 +1,32 @@
 # Mall Customer Segmentation in Python
 
-# **Project Overview**
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Dataset Overview](#dataset-overview)
+  - [Data Source](#data-source)
+- [Goals and Key Questions](#goals-and-key-questions)
+- [Data Preprocessing & Exploration](#data-preprocessing--exploration)
+  - [Loading the Data](#loading-the-data)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+  - [Visualizing Customer Attributes](#visualizing-customer-attributes)
+- [Feature Engineering & Preprocessing](#feature-engineering--preprocessing)
+- [Clustering Using K-Means](#clustering-using-k-means)
+  - [Finding the Optimal Number of Clusters (Elbow Method)](#finding-the-optimal-number-of-clusters-elbow-method)
+  - [Applying K-Means Clustering](#applying-k-means-clustering)
+- [Cluster Visualization](#cluster-visualization)
+  - [2D Visualization](#2d-visualization)
+  - [3D Visualization](#3d-visualization)
+- [Interpreting the Clusters](#interpreting-the-clusters)
+- [Results](#results)
+- [Limitations](#limitations)
+- [Next Steps](#next-steps)
+
+
+## **Project Overview**
 
 This project applies **K-Means clustering** to segment customers based on **age, annual income, and spending score**. By grouping customers into clusters, businesses can **identify target customer segments** for marketing strategies.
 
-# **Dataset Overview**
+## **Dataset Overview**
 
 The dataset contains the following key attributes:
 
@@ -14,20 +36,20 @@ The dataset contains the following key attributes:
 - **Annual Income (k$)**: Income in thousands of dollars.
 - **Spending Score (1-100)**: Score assigned based on purchasing behavior.
 
-## **Data Source**
+### **Data Source**
 
 The dataset is publicly available: [Customer Segmentation Dataset](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python)
 
-# **Goals and Key Questions**
+## **Goals and Key Questions**
 
 - How to achieve **customer segmentation** using **K-Means clustering**?
 - Who are the **target customers** that businesses can focus on for marketing?
 - How does **spending behavior** relate to **income and age**?
 - What actionable insights can we derive from the customer segments?
 
-# **Data Preprocessing & Exploration**
+## **Data Preprocessing & Exploration**
 
-## **Loading the Data**
+### **Loading the Data**
 
 ```python
 import pandas as pd
@@ -47,9 +69,9 @@ df.head()
 | 3 | 4 | Female | 23 | 16 | 77 |
 | 4 | 5 | Female | 31 | 17 | 40 |
 
-# **Exploratory Data Analysis (EDA)**
+## **Exploratory Data Analysis (EDA)**
 
-## **Visualizing Customer Attributes**
+### **Visualizing Customer Attributes**
 
 ```python
 import matplotlib.pyplot as plt
@@ -78,9 +100,9 @@ plt.show()
 
 **Key Findings**: The data is well-distributed, but some customers have extreme spending behaviors.
 
-# **Feature Engineering & Preprocessing**
+## **Feature Engineering & Preprocessing**
 
-## **Handling Categorical and Numerical Data**
+### **Handling Categorical and Numerical Data**
 
 ```python
 from sklearn.preprocessing import LabelEncoder, StandardScaler
@@ -112,9 +134,9 @@ df_scaled.head()
 
 **Why This Step?**: Standardization ensures features have equal importance in clustering.
 
-# **Clustering Using K-Means**
+## **Clustering Using K-Means**
 
-## **Finding the Optimal Number of Clusters (Elbow Method)**
+### **Finding the Optimal Number of Clusters (Elbow Method)**
 
 ```python
 from sklearn.cluster import KMeans
@@ -141,7 +163,7 @@ plt.show()
 
 **Key Finding**: The **optimal number of clusters (K) is 5**, as observed at the elbow point.
 
-## **Applying K-Means Clustering**
+### **Applying K-Means Clustering**
 
 ```python
 # Train K-Means model
@@ -152,9 +174,9 @@ df_scaled["Cluster"] = kmeans.fit_predict(df_scaled[["Annual Income (k$)", "Spen
 df["Cluster"] = df_scaled["Cluster"]
 ```
 
-## **Cluster Visualization**
+### **Cluster Visualization**
 
-### 2D
+#### 2D
 
 ```python
 # Visualize the clusters in a 2D scatter plot using Annual Income and Spending Score
@@ -175,7 +197,7 @@ plt.show()
 
 ![image.png](image%202.png)
 
-### 3D
+#### 3D
 
 ```python
 from mpl_toolkits.mplot3d import Axes3D
@@ -207,7 +229,7 @@ plt.show()
 
 ![image.png](image%203.png)
 
-## **Interpreting the Clusters**:
+### **Interpreting the Clusters**:
 
 - **Cluster 0**: High income, high spending – Premium customers.
     - **Business Strategy**: Offer loyalty programs, exclusive discounts, and personalized services to maintain engagement.
@@ -220,9 +242,9 @@ plt.show()
 - **Cluster 4**: Low income, low spending – Occasional mall visitors.
     - **Business Strategy**: Provide referral discounts and budget-friendly product lines to increase engagement.
 
-# Results
+## Results
 
-## Addressing Key Goals & Questions:
+### Addressing Key Goals & Questions:
 
 1. **How to achieve customer segmentation using machine learning?**
     - Successfully applied K-Means clustering to segment customers into five distinct groups based on spending behavior and income levels.
@@ -233,13 +255,13 @@ plt.show()
 4. **What actionable insights can we derive?**
     - Marketing teams should focus on **premium shoppers** for retention, while engaging **low-spending high-income customers** with personalized experiences.
 
-# **Limitations**
+## **Limitations**
 
 - **Limited features**: Only considers age, income, and spending.
 - **Static dataset**: No time-based behavior tracking.
 - **Assumption of K-Means**: Spherical, equally-sized clusters may not always be ideal.
 
-# **Next Steps**
+## **Next Steps**
 
 - Experiment with **hierarchical clustering** and **DBSCAN**.
 - Incorporate additional features like **purchase frequency** and **loyalty scores**.
